@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQs | MKA Shop</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(180deg, #0a1a3a, #0f2a5c);
+  color: white;
+}
+
+/* HEADER */
+header {
+  padding: 20px;
+  text-align: center;
+  background: #003087;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 15px 30px;
+
+  background-image: url("../imagenes/ps3-header.webp");
+  background-size: cover;      /* 👈 clave */
+  background-repeat: no-repeat;
+  background-position: center right;
+
+  background-color: #003087;     /* fallback */
+}
+
+.logo img {
+  height: 50px;
+}
+
+
+
+/* SIDEBAR */
+.sidebar {
+  width: 220px;
+  background: linear-gradient(180deg, #0f2a5c, #1c4fa3);
+  padding: 20px;
+}
+
+.sidebar h3 {
+  margin-top: 20px;
+  color: #7db3ff;
+}
+
+.sidebar a {
+  display: block;
+  color: #e0eaff;
+  text-decoration: none;
+  margin: 5px 0;
+}
+
+.sidebar a:hover {
+  color: #00bfff;
+}
+
+/* CONTENIDO */
+.content {
+  flex: 1;
+  padding: 20px;
+  background: #ffffff; /* fondo blanco */
+}
+
+.container {
+  display: flex;
+  min-height: 80vh;
+}
+
+/* FOOTER */
+footer {
+  background: #020c1f;
+  padding: 40px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-logo img {
+  height: 40px;
+}
+
+.footer-column {
+  margin: 10px;
+}
+
+.footer-column h4 {
+  margin-bottom: 10px;
+}
+
+.footer-column a {
+  display: block;
+  color: #ccc;
+  text-decoration: none;
+  margin-bottom: 5px;
+}
+
+.footer-column a:hover {
+  color: #25D366;
+}
+
+.about-us {
+  max-width: 900px;
+  margin: auto;
+  color: #111;
+  line-height: 1.8;
+}
+
+.about-us h2 {
+  color: #003087;
+  margin-bottom: 25px;
+  font-size: 32px;
+}
+
+.about-us p {
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+/* =========================
+   RESPONSIVE MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+  /* HEADER */
+  .header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px 15px;
+    background-position: center;
+  }
+
+  .header h1 {
+    font-size: 28px;
+    margin-top: 10px;
+  }
+
+  .logo img {
+    height: 45px;
+  }
+
+  /* CONTENEDOR PRINCIPAL */
+  .container {
+    flex-direction: column;
+  }
+
+  /* SIDEBAR */
+  .sidebar {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 15px;
+  }
+
+  .sidebar h3 {
+    margin-top: 25px;
+    font-size: 20px;
+  }
+
+  .sidebar a {
+    padding: 8px 0;
+    font-size: 16px;
+  }
+
+  /* CONTENIDO */
+  .content {
+    padding: 25px 18px;
+  }
+
+  .about-us {
+    max-width: 100%;
+  }
+
+  .about-us h2 {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .about-us p {
+    font-size: 16px;
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  /* FOOTER */
+  footer {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 20px;
+  }
+
+  .footer-column {
+    margin: 15px 0;
+  }
+
+  .footer-logo img {
+    height: 35px;
+    margin-bottom: 20px;
+  }
+}
+
+
+/* =========================
+   FAQ
+========================= */
+
+.faq-section {
+  max-width: 900px;
+  margin: 60px auto;
+  color: #111;
+}
+
+.faq-title {
+  font-size: 34px;
+  color: #003087;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.faq-item {
+  background: #f4f7fc;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+.faq-item summary {
+  cursor: pointer;
+  padding: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  list-style: none;
+  position: relative;
+  transition: background 0.3s ease;
+}
+
+.faq-item summary:hover {
+  background: #e9f1ff;
+}
+
+.faq-item summary::after {
+  content: "+";
+  position: absolute;
+  right: 20px;
+  font-size: 24px;
+  transition: transform 0.3s ease;
+}
+
+.faq-item[open] summary::after {
+  content: "−";
+}
+
+.faq-answer {
+  padding: 0 20px 20px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #333;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+  .faq-title {
+    font-size: 28px;
+  }
+
+  .faq-item summary {
+    font-size: 16px;
+    padding: 18px;
+  }
+
+  .faq-answer {
+    font-size: 15px;
+  }
+
+}
+
+</style>
+
+<body>
+
+<header class="header">
+  <div class="logo">
+    <a href="../index.html">
+      <img src="../imagenes/logo-mka.svg">
+    </a>
+  </div>
+  <h1>PlayStation 3</h1>
+</header>
+
+<div class="container">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <a href="../index.html">Inicio</a>
+
+    <a href="PlayStation1-index.html"><h3>PlayStation</h3></a>
+     <a href="ps1-consolap.html">Consola</a>
+    <a href="ps1-videojuegos-p1.html">Videojuegos</a>
+    <a href="ps1-accesorios.html">Accesorios</a>
+
+    <a href="PlayStation2-index.html"><h3>PlayStation 2</h3></a>
+    <a href="ps2-consolap.html">Consola</a>
+    <a href="ps2-videojuegos-p1.html">Videojuegos</a>
+    <a href="ps2-accesorios.html">Accesorios</a>
+
+    <a href="PlayStation3-index.html"><h3>PlayStation 3</h3></a>
+    <a href="ps3-consolap.html">Consola</a>
+    <a href="ps3-videojuegos-p1.html">Videojuegos</a>
+    <a href="ps3-accesorios.html">Accesorios</a>
+
+    <h3>Geek</h3>
+    <a href="en-construccion.html">Ver todo</a>
+  </aside>
+
+  <!-- CONTENIDO -->
+<main class="content">
+
+<section class="faq-section">
+
+  <h2 class="faq-title">Preguntas Frecuentes</h2>
+
+  <details class="faq-item">
+    <summary>¿Los productos son originales?</summary>
+    <div class="faq-answer">
+      Sí. Todos los artículos publicados son originales y se encuentran en buen estado funcional y estético. Las fotos mostradas corresponden al producto real.
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary>¿Los juegos y consolas funcionan correctamente?</summary>
+    <div class="faq-answer">
+      Sí. Todo se prueba antes de publicarse y nuevamente antes de entregarse.
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary>¿Hacen envíos?</summary>
+    <div class="faq-answer">
+      Actualmente las entregas se realizan principalmente en persona. Si el comprador desea envío, este deberá ser coordinado y cubierto completamente por el comprador.
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary>¿Dónde se realizan las entregas?</summary>
+    <div class="faq-answer">
+      Las entregas se realizan en Parque Tepeyac, frente a la tienda MINI SO dentro del centro comercial.
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary>¿Por qué las entregas son en persona?</summary>
+    <div class="faq-answer">
+      Porque así el comprador puede revisar personalmente el estado y funcionamiento del producto antes de concretar la compra, ofreciendo mayor seguridad y confianza para ambas partes.
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary>¿Puedo apartar un producto?</summary>
+    <div class="faq-answer">
+      Dependerá del artículo y del acuerdo previo. Algunos productos pueden apartarse por tiempo limitado.
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary>¿Aceptan cambios o devoluciones?</summary>
+    <div class="faq-answer">
+      No se aceptan cambios ni devoluciones una vez entregado el producto y verificado por el comprador.
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary>¿Los productos vuelven a estar disponibles?</summary>
+    <div class="faq-answer">
+      En la mayoría de los casos no. Muchos artículos son piezas únicas de colección y no habrá restock.
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary>¿Cómo puedo apartar o comprar un artículo?</summary>
+    <div class="faq-answer">
+      Puedes contactar directamente mediante el método de contacto indicado en la página para confirmar disponibilidad y coordinar entrega.
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary>¿El producto incluye caja o accesorios originales?</summary>
+    <div class="faq-answer">
+      Cada publicación especificará exactamente qué incluye el artículo.
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary>¿Las fotos están editadas?</summary>
+    <div class="faq-answer">
+      No. Las fotos buscan mostrar el estado real del producto lo más fiel posible.
+    </div>
+  </details>
+
+</section>
+
+</main>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+
+  <div class="footer-logo">
+    <img src="imagenes/LOGO-MKA.svg">
+  </div>
+
+  <div class="footer-column">
+    <h4>Nosotros</h4>
+    <a href="#">Quiénes somos</a>
+    <a href="#">Misión</a>
+  </div>
+
+  <div class="footer-column">
+    <h4>Social</h4>
+    <a href="#">Facebook</a>
+    <a href="#">Instagram</a>
+  </div>
+
+  <div class="footer-column">
+    <h4>Contacto</h4>
+    <a href="#">WhatsApp</a>
+  </div>
+
+</footer>
+
+</body>
+</html>
